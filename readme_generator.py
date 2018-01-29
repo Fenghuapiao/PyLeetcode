@@ -166,7 +166,7 @@ class TableInform:
                     complete_info.solved['python'] += 1
                     # count += 1
                     folder_url = j
-                    self.table_item[i[21:24]].python = '[Python]({})'.format(Config.github_url+j[1:])
+                    self.table_item[i[21:24]].python = '[Python]({})'.format((Config.github_url+j[1:]).replace(' ', '%20'))
         readme = Readme(len(self.table),
                         complete_info.solved,
                         self.locked,
