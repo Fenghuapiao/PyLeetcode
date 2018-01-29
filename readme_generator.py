@@ -155,18 +155,20 @@ class TableInform:
         complete_info = CompleteInform()
         self.get_leetcode_problems()
         # the total problem nums
-        complete_info.total = len(self.table)
-        complete_info.lock = self.locked
+        # complete_info.total = len(self.table)
+        # complete_info.lock = self.locked
         complete_info = CompleteInform()
+        # count = 0
         for i in glob.glob(Config.local_path + '*'):
             for j in glob.glob(i + '/*'):
                 if j.endswith('.py'):
                     complete_info.solved['python'] += 1
+                    # count += 1
                     folder_url = j
-                    self.table_item[folder[:3]].python = '[Python]({})'.format(folder_url)
-        readme = Readme(complete_info.total,
-                        complete_info.complete_num,
-                        complete_info.lock,
+                    self.table_item[i[21:24]].python = '[Python]({})'.format(i)
+        readme = Readme(len(self.table),
+                        complete_info.solved,
+                        self.locked,
                         complete_info.solved)
         readme.create_leetcode_readme([self.table, self.table_item])
 
