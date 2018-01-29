@@ -7,6 +7,7 @@ import requests as rq
 class Config:
     leetcode_url = 'https://leetcode.com/problems/'
     local_path = './LeetcodeAlgorithms/'
+    github_url = 'https://github.com/Fenghuapiao/PyLeetcode'
 
 class Question:
     """
@@ -165,7 +166,7 @@ class TableInform:
                     complete_info.solved['python'] += 1
                     # count += 1
                     folder_url = j
-                    self.table_item[i[21:24]].python = '[Python]({})'.format(i)
+                    self.table_item[i[21:24]].python = '[Python]({})'.format(Config.github_url+i[1:])
         readme = Readme(len(self.table),
                         complete_info.solved,
                         self.locked,
